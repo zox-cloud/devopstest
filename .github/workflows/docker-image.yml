@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t decopssdu/task-backend:latest .
+          docker build -t devopssdu/task-backend:latest .
 
       - name: Build Docker image
         run: |
