@@ -25,19 +25,19 @@ jobs:
       # 3. Build & tag backend image
       - name: Build backend image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/task-backend:latest ./backend
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/task-backend:latest ./backend
 
       # 4. Push backend image
       - name: Push backend image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/task-backend:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/task-backend:latest
 
       # 5. Build & tag frontend image
       - name: Build frontend image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/task-frontend:latest ./frontend
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/task-frontend:latest ./frontend
 
       # 6. Push frontend image
       - name: Push frontend image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/task-frontend:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/task-frontend:latest
