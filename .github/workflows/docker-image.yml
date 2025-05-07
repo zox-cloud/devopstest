@@ -24,14 +24,14 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/task-backend .
+          docker build -t decopssdu/task-backend:latest .
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/task-frontend .
+          docker build -t devopssdu/task-frontend:latest .
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/task-backend
+          docker push devopssdu/task-backend:latest
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/task-frontend
+          docker push devopssdu/task-frontend:latest
