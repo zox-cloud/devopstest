@@ -13,7 +13,7 @@ export default function App() {
     const [title, setTitle] = useState('');
     const [status, setStatus] = useState('todo');
 
-    // Функция для получения задач
+   
     const fetchTasks = () => {
         axios.get(`${API}/api/tasks`)
             .then(res => setTasks(res.data))
@@ -24,7 +24,7 @@ export default function App() {
         fetchTasks();
     }, []);
 
-    // Добавление задачи
+ 
     const addTask = () => {
         if (!title) return;
         axios.post(`${API}/api/tasks`, { title, status })
@@ -36,21 +36,21 @@ export default function App() {
             .catch(console.error);
     };
 
-    // Обновление статуса задачи
+    
     const updateTask = (id, newStatus) => {
         axios.put(`${API}/api/tasks/${id}`, { status: newStatus })
             .then(() => fetchTasks())
             .catch(console.error);
     };
 
-    // Удаление задачи
+   
     const deleteTask = (id) => {
         axios.delete(`${API}/api/tasks/${id}`)
             .then(() => fetchTasks())
             .catch(console.error);
     };
 
-    // Подсчёт задач по статусам
+    
     const counts = tasks.reduce((acc, t) => {
         acc[t.status] = (acc[t.status] || 0) + 1;
         return acc;
@@ -61,7 +61,7 @@ export default function App() {
         <div style={{ maxWidth: 900, margin: '2rem auto', padding: '0 1rem' }}>
             <h1 style={{ textAlign: 'center' }}>📝 Task Tracker</h1>
 
-            {/* Форма добавления задачи */}
+            
             <div style={{ margin: '1rem 0', display: 'flex', gap: '1rem' }}>
                 <input
                     style={{ flex: 1, padding: 8 }}
@@ -78,7 +78,7 @@ export default function App() {
             </div>
 
             <div style={{ display: 'flex', gap: '2rem' }}>
-                {/* Таблица задач */}
+                
                 <table style={{ flex: 1, borderCollapse: 'collapse' }}>
                     <thead>
                     <tr>
@@ -111,7 +111,7 @@ export default function App() {
                     </tbody>
                 </table>
 
-                {/* График по статусам */}
+                
                 <div style={{ flex: 1 }}>
                     <h2>Tasks by Status</h2>
                     <ResponsiveContainer width="100%" height={300}>
