@@ -5,16 +5,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// В памяти храним задачи
+
 let nextId = 1;
 const tasks = [];
 
-// GET /api/tasks — вернуть все
+
 app.get('/api/tasks', (req, res) => {
     res.json(tasks);
 });
 
-// POST /api/tasks — создать
+
 app.post('/api/tasks', (req, res) => {
     const { title, status = 'todo' } = req.body;
     const task = { id: nextId++, title, status };
@@ -22,7 +22,7 @@ app.post('/api/tasks', (req, res) => {
     res.status(201).json(task);
 });
 
-// PUT /api/tasks/:id — обновить
+
 app.put('/api/tasks/:id', (req, res) => {
     const id = Number(req.params.id);
     const task = tasks.find(t => t.id === id);
@@ -34,7 +34,7 @@ app.put('/api/tasks/:id', (req, res) => {
     res.json(task);
 });
 
-// DELETE /api/tasks/:id — удалить
+
 app.delete('/api/tasks/:id', (req, res) => {
     const id = Number(req.params.id);
     const idx = tasks.findIndex(t => t.id === id);
