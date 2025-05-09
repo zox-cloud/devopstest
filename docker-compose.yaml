@@ -1,28 +1,3 @@
-# version: '3.8'
-# services:
-#   backend:
-#     build: ./backend
-#     container_name: task-backend
-#     ports:
-#       - "4000:4000"
-#     networks:
-#       - appnet
-
-#   frontend:
-#     build: ./frontend
-#     container_name: task-frontend
-#     ports:
-#       - "3000:80"
-#     depends_on:
-#       - backend
-#     networks:
-#       - appnet
-
-# networks:
-#   appnet:
-#     driver: bridge
-
-
 version: '3.8'
 services:
   backend:
